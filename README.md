@@ -44,7 +44,7 @@ docker network create inv_net
    docker compose up -d     # Encender nuevamente
    ```
 
-5. **Probar desde dentro de Docker (sin puertos publicados)**
+5. **Probar desde dentro de Docker (sin puertos publicados, pero exponiendo el 8080 a la red)**
    - Usando `docker compose exec` dentro del contenedor nginx:
      ```bash
      docker compose exec nginx wget -qO- http://localhost:8080/health
