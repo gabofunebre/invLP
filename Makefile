@@ -4,16 +4,16 @@ COMPOSE ?= docker compose
 
 ## Levanta nginx recreando el contenedor para aplicar cambios.
 up:
-$(COMPOSE) up -d --force-recreate
+	$(COMPOSE) up -d --force-recreate
 
 ## Detiene y elimina los contenedores/recursos creados por docker-compose.
 down:
-$(COMPOSE) down
+	$(COMPOSE) down
 
 ## Detiene el contenedor sin eliminarlo.
 stop:
-$(COMPOSE) stop
+	$(COMPOSE) stop
 
 ## Inicia un contenedor previamente creado.
 start:
-$(COMPOSE) start
+	$(COMPOSE) start
