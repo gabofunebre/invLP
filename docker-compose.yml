@@ -2,6 +2,7 @@ version: "3.9"
 
 networks:
   inv_net:
+    external: true
     name: inv_net
 
 services:
@@ -12,7 +13,7 @@ services:
     networks:
       - inv_net
     volumes:
-      - /WDPassportGabo/Servicios/invLP:/usr/share/nginx/html:ro
+      - ./index.html:/usr/share/nginx/html/index.html:ro
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
     healthcheck:
       test: ["CMD", "wget", "--spider", "-q", "http://localhost:8080/health"]
