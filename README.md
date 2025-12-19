@@ -1,59 +1,50 @@
-# Landing estática con nginx + cloudflared
+# Landing estática con nginx
 
-Configuración de Docker Compose para servir la landing estática incluida en este repositorio (archivo `index.html`) con nginx y un túnel de Cloudflare. No se publican puertos al host: el sitio queda accesible únicamente dentro de la red Docker `inv_net` y a través del túnel.
+Docker Compose para servir la landing incluida en `index.html` usando nginx dentro de la red Docker `inv_net`. No se exponen
+puertos al host; el acceso externo se realiza mediante el cloudflared que ya tienes corriendo en la misma red Docker.
 
 ## Estructura de carpetas
 
 ```
 .
-├── cloudflared/
-│   └── config.yml
 ├── nginx/
 │   └── default.conf
 ├── docker-compose.yml
-├── .env.example
 ├── index.html
 └── README.md
 ```
 
 ## Requisitos previos
 - Docker y Docker Compose instalados.
-- Red Docker externa creada o existente llamada `inv_net` (es la misma donde está corriendo cloudflared).
-- Token del túnel ya creado en Cloudflare (`TUNNEL_TOKEN`).
+- Red Docker externa existente llamada `inv_net` (la misma donde corre tu contenedor de cloudflared).
+- Una instancia de cloudflared ya levantada y conectada a `inv_net` para exponer el servicio. No se requiere token ni archivo
+  `.env` en este repositorio.
 
-Para crear la red externa en caso de que no exista:
+Si la red externa no existe aún:
 ```bash
 docker network create inv_net
 ```
 
 ## Pasos de uso
-1. **Clonar/ubicar los archivos**
-   Coloca este repositorio en la máquina donde se ejecutará Docker.
+1. **Clonar/ubicar los archivos** en la máquina donde se ejecutará Docker.
 
-2. **Configurar el token en `.env`**
-   ```bash
-   cp .env.example .env
-   # Edita .env y reemplaza TUNNEL_TOKEN con el token real de Cloudflare
-   ```
-
-3. **Levantar los servicios**
+2. **Levantar nginx**
    ```bash
    docker compose up -d
    ```
 
-4. **Ver logs**
+3. **Ver logs**
    ```bash
    docker compose logs -f nginx
-   docker compose logs -f cloudflared
    ```
 
-5. **Apagar/encender**
+4. **Apagar/encender**
    ```bash
    docker compose down      # Apagar
    docker compose up -d     # Encender nuevamente
    ```
 
-6. **Probar desde dentro de Docker (sin puertos publicados)**
+5. **Probar desde dentro de Docker (sin puertos publicados)**
    - Usando `docker compose exec` dentro del contenedor nginx:
      ```bash
      docker compose exec nginx wget -qO- http://localhost:8080/health
@@ -64,7 +55,7 @@ docker network create inv_net
      ```
 
 ## Notas de configuración
-- nginx escucha en el puerto interno `8080` dentro de la red `inv_net` y sirve `/usr/share/nginx/html/index.html` en modo de solo lectura desde el archivo `index.html` incluido en el repositorio.
-- No se publican puertos al host; todo el tráfico pasa por el túnel de Cloudflare hacia `inv.gabo.ar`.
-- La directiva `/health` devuelve 200 para healthchecks. Los estáticos comunes (css/js/img/fonts) llevan caché de 7 días; `index.html` se sirve sin caché agresiva.
-- Cloudflared enruta `inv.gabo.ar` hacia `http://landingInvernaderos:8080` usando el token almacenado en `.env`.
+- nginx escucha en `8080` dentro de la red `inv_net` y sirve `/usr/share/nginx/html/index.html` (montado desde `index.html`).
+- No se publican puertos al host; se asume que el cloudflared existente redirige el tráfico externo hacia este contenedor.
+- La ruta `/health` devuelve 200 para healthchecks. Los estáticos comunes (css/js/img/fonts) llevan caché de 7 días;
+  `index.html` se sirve sin caché agresiva.
