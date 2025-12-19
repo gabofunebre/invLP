@@ -21,18 +21,3 @@ services:
       timeout: 5s
       retries: 3
       start_period: 10s
-
-  cloudflared:
-    image: cloudflare/cloudflared:2024.5.0
-    container_name: cloudflared
-    restart: unless-stopped
-    depends_on:
-      nginx:
-        condition: service_healthy
-    env_file:
-      - .env
-    command: ["tunnel", "--no-autoupdate", "run", "--token", "${TUNNEL_TOKEN}"]
-    networks:
-      - inv_net
-    volumes:
-      - ./cloudflared/config.yml:/etc/cloudflared/config.yml:ro
