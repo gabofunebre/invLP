@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Invernaderos residenciales de diseño | Taller Americano</title>
+  <meta name="description" content="Diseñamos y construimos invernaderos residenciales de alta gama: vidrio de seguridad, aluminio y hierro. Un espacio para disfrutar, cultivar y pasar tiempo en tu casa." />
+
+  <style>
+    :root{
+      --bg:#0b0d0f;
+      --card:#111418;
+      --text:#e9eef2;
+      --muted:#b2bdc7;
+      --line:rgba(255,255,255,.08);
+      --brand:#ff5a1f;
+      --radius:18px;
+      --max:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:linear-gradient(180deg,#080a0c 0%, #0b0d0f 35%, #0a0c0e 100%);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max);margin:0 auto;padding:22px}
+    .nav{
+      position:sticky;top:0;z-index:30;
+      backdrop-filter:saturate(140%) blur(10px);
+      background:rgba(11,13,15,.68);
+      border-bottom:1px solid var(--line);
+    }
+    .nav .wrap{display:flex;align-items:center;gap:14px;justify-content:space-between}
+    .brand{
+      display:flex;align-items:center;gap:12px;min-width:220px
+    }
+    .brand img{height:34px;width:auto;display:block}
+    .navlinks{display:flex;gap:14px;flex-wrap:wrap;justify-content:flex-end}
+    .navlinks a{color:var(--muted);font-size:14px;padding:8px 10px;border-radius:12px}
+    .navlinks a:hover{background:rgba(255,255,255,.05);color:var(--text)}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:12px 16px;border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.06);
+      color:var(--text);font-weight:650;letter-spacing:.2px;
+    }
+    .btn.primary{
+      background:linear-gradient(90deg,var(--brand),#ff8a1f);
+      border:0;color:#101215;
+      box-shadow:0 10px 30px rgba(255,90,31,.18);
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .hero{
+      padding:34px 0 10px;
+    }
+    .hero-grid{
+      display:grid;grid-template-columns:1.05fr .95fr;gap:22px;align-items:stretch;
+    }
+    @media (max-width: 900px){
+      .hero-grid{grid-template-columns:1fr}
+      .brand{min-width:auto}
+    }
+    .kicker{color:var(--muted);font-size:14px;margin:0 0 8px}
+    h1{font-size:44px;line-height:1.08;margin:0 0 12px}
+    @media (max-width: 520px){
+      h1{font-size:34px}
+    }
+    .lead{color:var(--muted);font-size:18px;line-height:1.55;margin:0 0 18px;max-width:52ch}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+    .hero-card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      overflow:hidden;
+    }
+    .hero-media{
+      position:relative;aspect-ratio: 4 / 3;overflow:hidden;
+      background:#0a0c0e;
+    }
+    .hero-media img{
+      width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.08) contrast(1.05);
+      transform:scale(1.02);
+    }
+    .hero-badge{
+      position:absolute;left:14px;top:14px;
+      background:rgba(0,0,0,.52);
+      border:1px solid rgba(255,255,255,.16);
+      padding:10px 12px;border-radius:14px;
+      font-size:13px;color:var(--text)
+    }
+    .hero-badge b{color:#fff}
+    .hero-meta{
+      padding:14px 16px;border-top:1px solid var(--line);
+      display:grid;grid-template-columns:1fr 1fr;gap:10px
+    }
+    .meta-item{padding:10px 12px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.03)}
+    .meta-item .t{color:var(--muted);font-size:12px;margin-bottom:4px}
+    .meta-item .v{font-weight:680}
+    section{padding:26px 0}
+    .section-title{font-size:24px;margin:0 0 10px}
+    .section-sub{color:var(--muted);margin:0 0 14px;max-width:70ch;line-height:1.55}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    @media (max-width: 900px){.grid-3{grid-template-columns:1fr}}
+    .card{
+      background:rgba(255,255,255,.03);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:16px;
+    }
+    .card h3{margin:0 0 8px;font-size:16px}
+    .card p{margin:0;color:var(--muted);line-height:1.55}
+    .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .chip{font-size:12px;color:var(--muted);border:1px solid var(--line);padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.02)}
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(12,1fr);
+      gap:10px;
+    }
+    .g{
+      border:1px solid var(--line);
+      border-radius:16px;
+      overflow:hidden;
+      background:#0a0c0e;
+      min-height:140px;
+    }
+    .g img{width:100%;height:100%;object-fit:cover;display:block}
+    .g.a{grid-column:span 7;aspect-ratio: 16/10}
+    .g.b{grid-column:span 5;aspect-ratio: 16/10}
+    .g.c{grid-column:span 4;aspect-ratio: 16/11}
+    .g.d{grid-column:span 4;aspect-ratio: 16/11}
+    .g.e{grid-column:span 4;aspect-ratio: 16/11}
+    @media (max-width: 900px){
+      .g.a,.g.b,.g.c,.g.d,.g.e{grid-column:span 12}
+    }
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    @media (max-width: 900px){.steps{grid-template-columns:1fr}}
+    .step{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      border-radius:var(--radius);
+      padding:14px 14px 16px;
+    }
+    .step .n{
+      width:30px;height:30px;border-radius:10px;
+      display:flex;align-items:center;justify-content:center;
+      background:rgba(255,90,31,.18);
+      color:#ffd2c2;
+      font-weight:800;
+      margin-bottom:10px;
+      border:1px solid rgba(255,90,31,.22);
+    }
+    .step b{display:block;margin-bottom:6px}
+    .price{
+      display:grid;grid-template-columns:1.2fr .8fr;gap:14px;align-items:stretch
+    }
+    @media (max-width: 900px){.price{grid-template-columns:1fr}}
+    .price .big{
+      font-size:34px;font-weight:850;margin:6px 0 10px;
+    }
+    .muted{color:var(--muted);line-height:1.55}
+    .cta{
+      background:linear-gradient(180deg, rgba(255,90,31,.10), rgba(255,255,255,.02));
+      border:1px solid rgba(255,90,31,.18);
+      border-radius:var(--radius);
+      padding:18px;
+      display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap
+    }
+    footer{
+      border-top:1px solid var(--line);
+      padding:20px 0 30px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .small{font-size:13px;color:var(--muted)}
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    @media (max-width:900px){.two{grid-template-columns:1fr}}
+    .inline-form{
+      display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px
+    }
+    @media (max-width:650px){.inline-form{grid-template-columns:1fr}}
+    label{display:block;font-size:12px;color:var(--muted);margin:0 0 6px}
+    input,select,textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.18);
+      color:var(--text);
+      outline:none;
+    }
+    textarea{min-height:110px;resize:vertical}
+    .note{font-size:12px;color:var(--muted);margin-top:10px}
+  </style>
+</head>
+
+<body>
+
+  <div class="nav">
+    <div class="wrap">
+      <div class="brand">
+        <img src="assets/logo_long.png" alt="Taller Americano" />
+      </div>
+      <div class="navlinks">
+        <a href="#que-es">Qué es</a>
+        <a href="#diferencia">Diferencia</a>
+        <a href="#galeria">Galería</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#precio">Precio</a>
+        <a class="btn primary" href="#contacto">Consultar</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <p class="kicker">Invernaderos residenciales • Diseño + construcción</p>
+          <h1>Un invernadero de verdad, pensado como parte de tu casa.</h1>
+          <p class="lead">
+            Diseñamos y construimos invernaderos residenciales de alta gama: estructura sólida, vidrio de seguridad y terminaciones cuidadas.
+            Un espacio para cultivar, disfrutar y pasar tiempo en casa todo el año.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn primary" href="#contacto">Consultar proyecto</a>
+            <a class="btn" href="#galeria">Ver fotos</a>
+          </div>
+
+          <div class="chips">
+            <span class="chip">Aluminio / hierro</span>
+            <span class="chip">Vidrio de seguridad</span>
+            <span class="chip">A medida</span>
+            <span class="chip">Instalación profesional</span>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-media">
+            <!-- HERO IMAGE: elegí la mejor de tus fotos reales -->
+            <img src="assets/INVERNADEROS-18.jpg" alt="Invernadero residencial de vidrio" />
+            <div class="hero-badge">
+              <b>Alta gama</b> • Diseño + porte • Hecho a medida
+            </div>
+          </div>
+          <div class="hero-meta">
+            <div class="meta-item">
+              <div class="t">Enfoque</div>
+              <div class="v">Residencial</div>
+            </div>
+            <div class="meta-item">
+              <div class="t">Materiales</div>
+              <div class="v">Vidrio + metal</div>
+            </div>
+            <div class="meta-item">
+              <div class="t">Uso</div>
+              <div class="v">Cultivar / estar</div>
+            </div>
+            <div class="meta-item">
+              <div class="t">Zona</div>
+              <div class="v">CABA + GBA + interior</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <section id="que-es">
+      <h2 class="section-title">Qué es</h2>
+      <p class="section-sub">
+        Un invernadero residencial no es solo un lugar para plantar.
+        Es un ambiente luminoso y protegido para disfrutar actividades ligadas a lo natural dentro de tu propia casa.
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Espacio de uso real</h3>
+          <p>Un lugar para cultivar, cuidar, estar un rato y disfrutar la luz natural.</p>
+        </div>
+        <div class="card">
+          <h3>Pieza arquitectónica</h3>
+          <p>Diseño integrado al entorno y a la estética de la vivienda.</p>
+        </div>
+        <div class="card">
+          <h3>Construcción sólida</h3>
+          <p>Materiales de porte y terminaciones pensadas para durar.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="diferencia">
+      <h2 class="section-title">Por qué es distinto</h2>
+      <p class="section-sub">
+        No trabajamos soluciones livianas ni temporales. Nuestros proyectos están pensados para quienes valoran diseño, materiales y permanencia.
+      </p>
+
+      <div class="two">
+        <div class="card">
+          <h3>Materiales y seguridad</h3>
+          <p>
+            Estructuras en aluminio y/o hierro, con cerramientos en vidrio de seguridad y detalles de terminación.
+            La técnica respalda el resultado.
+          </p>
+          <div class="chips">
+            <span class="chip">Vidrio de seguridad</span>
+            <span class="chip">Estructura robusta</span>
+            <span class="chip">Terminación prolija</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Diseño a medida</h3>
+          <p>
+            Cada proyecto se adapta al espacio, orientación, uso deseado y estética del entorno.
+            Lo importante es que se vea bien y se use.
+          </p>
+          <div class="chips">
+            <span class="chip">Integración con la casa</span>
+            <span class="chip">A medida</span>
+            <span class="chip">Porte</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="galeria">
+      <h2 class="section-title">Galería</h2>
+      <p class="section-sub">
+        Fotos de referencia para mostrar estilo, porte y usos posibles. Idealmente, acá poné tus fotos reales (aunque sean pocas).
+      </p>
+
+      <div class="gallery">
+        <div class="g a"><img src="assets/INVERNADEROS-24.jpg" alt="Invernadero grande de vidrio" /></div>
+        <div class="g b"><img src="assets/INVERNADEROS-26.jpg" alt="Invernadero con parque" /></div>
+        <div class="g c"><img src="assets/Backyard-greenhouse-is.jpg.webp" alt="Invernadero pequeño en jardín" /></div>
+        <div class="g d"><img src="assets/05-invernaderos-taller-americano.jpg" alt="Invernadero tipo pabellón" /></div>
+        <div class="g e"><img src="assets/22-invernaderos-taller-americano.jpg" alt="Interior de invernadero con plantas" /></div>
+      </div>
+    </section>
+
+    <section id="proceso">
+      <h2 class="section-title">Cómo trabajamos</h2>
+      <p class="section-sub">Proceso simple, claro y profesional.</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="n">1</div>
+          <b>Charla inicial</b>
+          <div class="muted">Entendemos el espacio y el uso que querés darle.</div>
+        </div>
+        <div class="step">
+          <div class="n">2</div>
+          <b>Diseño</b>
+          <div class="muted">Definimos tamaño, estética, materiales y detalles.</div>
+        </div>
+        <div class="step">
+          <div class="n">3</div>
+          <b>Fabricación</b>
+          <div class="muted">Construcción en taller con terminaciones cuidadas.</div>
+        </div>
+        <div class="step">
+          <div class="n">4</div>
+          <b>Instalación</b>
+          <div class="muted">Montaje en obra y entrega final.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="precio">
+      <h2 class="section-title">Precio orientativo</h2>
+
+      <div class="price">
+        <div class="card">
+          <div class="muted">Trabajamos proyectos a medida. El valor depende del tamaño, materiales y complejidad.</div>
+          <div class="big">Desde USD X</div>
+          <div class="muted">Si querés, te damos un presupuesto orientativo con los datos básicos del espacio.</div>
+          <div class="note">Tip: poner un “desde” filtra curiosos y mejora la calidad de las consultas.</div>
+        </div>
+
+        <div class="card">
+          <h3>Respaldo</h3>
+          <p class="muted">
+            Taller Americano es carpintería integral con experiencia en aluminio, hierro y vidrio para viviendas.
+            Ese conocimiento se aplica a proyectos donde el diseño y la calidad importan.
+          </p>
+          <div class="chips">
+            <span class="chip">Carpintería integral</span>
+            <span class="chip">Materiales de primera</span>
+            <span class="chip">Experiencia real</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <h2 class="section-title">Consultar</h2>
+      <p class="section-sub">
+        Para responderte rápido y bien, contanos lo básico del lugar. Si tenés fotos del espacio, mejor.
+      </p>
+
+      <!-- FORMULARIO (no envía a ningún lado por defecto). Podés conectarlo con tu herramienta preferida. -->
+      <div class="card">
+        <form action="#" method="post">
+          <div class="inline-form">
+            <div>
+              <label>Nombre</label>
+              <input type="text" name="name" placeholder="Tu nombre" />
+            </div>
+            <div>
+              <label>WhatsApp o Email</label>
+              <input type="text" name="contact" placeholder="Ej: +54 9 ... / correo@..." />
+            </div>
+            <div>
+              <label>Zona</label>
+              <input type="text" name="zone" placeholder="Ej: Pilar / Canning / Luján..." />
+            </div>
+            <div>
+              <label>Uso principal</label>
+              <select name="use">
+                <option value="">Elegir...</option>
+                <option>Huerta / hortalizas</option>
+                <option>Flores / plantas ornamentales</option>
+                <option>Espacio de estar</option>
+                <option>Mixto</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="margin-top:10px">
+            <label>Contanos tu idea</label>
+            <textarea name="message" placeholder="Ej: quiero un invernadero de aprox X metros, en tal lugar del parque..."></textarea>
+          </div>
+
+          <div class="hero-actions" style="margin-top:12px">
+            <button class="btn primary" type="submit">Enviar consulta</button>
+
+            <!-- Alternativa rápida: WhatsApp directo -->
+            <a class="btn" href="https://wa.me/549XXXXXXXXXX?text=Hola%20Taller%20Americano%2C%20quiero%20consultar%20por%20un%20invernadero%20residencial." target="_blank" rel="noopener">
+              Escribir por WhatsApp
+            </a>
+          </div>
+
+          <div class="note">
+            Si preferís, podés mandar fotos del espacio y una medida aproximada.
+          </div>
+        </form>
+      </div>
+
+      <div class="cta" style="margin-top:14px">
+        <div>
+          <b>¿Querés ver opciones y estimación rápida?</b>
+          <div class="small">Con zona + 2 fotos del lugar + medida aproximada, te orientamos.</div>
+        </div>
+        <a class="btn primary" href="https://wa.me/549XXXXXXXXXX?text=Hola%20Taller%20Americano%2C%20te%20paso%20zona%2C%20fotos%20y%20medidas%20para%20una%20estimaci%C3%B3n%20orientativa." target="_blank" rel="noopener">Enviar por WhatsApp</a>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:space-between">
+        <div style="display:flex;align-items:center;gap:10px">
+          <img src="assets/logo_sqr.png" alt="Taller Americano" style="height:28px;width:auto" />
+          <span>© <span id="y"></span> Taller Americano • Carpintería Integral</span>
+        </div>
+        <div class="small">
+          <a href="#contacto">Contacto</a> • <a href="#galeria">Galería</a> • <a href="#precio">Precio</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
