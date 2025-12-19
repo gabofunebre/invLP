@@ -10,6 +10,8 @@ services:
     image: nginx:1.27-alpine
     container_name: landingInvernaderos
     restart: unless-stopped
+    expose:
+      - "8080"
     networks:
       - inv_net
     volumes:
