@@ -1,0 +1,7 @@
+ingress:
+  - hostname: inv.gabo.ar
+    service: http://landingInvernaderos:8080
+  - service: http_status:404
+
+originRequest:
+  httpHostHeader: inv.gabo.ar
